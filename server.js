@@ -20,8 +20,10 @@ app.use("/api/workouts", workoutRoutes);
 
 const port = process.env.PORT || 3000;
 
+const connectionString = process.env.MONGO_URI;
+
 // connect to db
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(connectionString)
   .then(() => {
     // listen for requests
     app.listen(port , () => {
